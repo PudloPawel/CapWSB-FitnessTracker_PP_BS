@@ -7,3 +7,7 @@ spring:
   h2:
     console:
       enabled: true
+
+#SELECT * FROM USERS
+#INSERT INTO USERS (FIRST_NAME, LAST_NAME, BIRTHDATE, EMAIL) VALUES ('Adam','Sak','1998-02-02','adam@wp.pl'),('Maks','Nowak','1990-01-01','MaKs98@wp.pl');
+
