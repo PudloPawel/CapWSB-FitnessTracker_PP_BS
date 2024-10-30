@@ -65,6 +65,15 @@ interface UserRepository extends JpaRepository<User, Long> {
                 .toList();
     }
 
-
+    default String delateUser(Long id){
+        User user = findById(id).orElse(null);
+        assert user != null;
+        if (null == user.getId()) {
+            throw new IllegalArgumentException("User don't exist DB ID, update is not permitted!");
+        }else{
+            deleteById(id);
+            return String.format("User %s deleted", id);
+        }
+    }
 
 }

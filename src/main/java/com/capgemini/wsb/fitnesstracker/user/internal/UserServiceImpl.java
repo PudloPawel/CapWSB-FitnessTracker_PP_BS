@@ -30,14 +30,7 @@ class UserServiceImpl implements UserService, UserProvider {
 
     @Override
     public String deleteUser(Long id) {
-        User user = userRepository.findById(id).orElse(null);
-        log.info("Delete User {}", id);
-        if (null == user.getId()) {
-            throw new IllegalArgumentException("User don't exist DB ID, update is not permitted!");
-        }else{
-            userRepository.deleteById(id);
-            return String.format("User %s deleted", id);
-        }
+        return userRepository.delateUser(id);
     }
 
     @Override

@@ -17,6 +17,7 @@ class UserController {
 
     @GetMapping
     public List<UserDto> getAllUsers() {
+        // Request POSTMAN http://localhost:8080/v1
         return userService.findAllUsers()
                           .stream()
                           .map(userMapper::toDto)
@@ -29,12 +30,13 @@ class UserController {
         // Demonstracja how to use @RequestBody
         System.out.println("User with e-mail: " + userDto.email() + "passed to the request");
 
+        // Request POSTMAN http://localhost:8080/v1/addUser
         /* JSON FORMAT TO PAYLOAD JSON
             {
                 "firstName" : "Adam",
                 "lastName" : "Kawa",
                 "birthdate" : "2000-01-02",
-                "email" : "kawa2000@wp.pl"
+```                "email" : "kawa2000@wp.pl"
             }
          */
         return userService.createUser(new User(userDto.firstName(),
@@ -52,7 +54,7 @@ class UserController {
 
     @GetMapping(value = "/getUsers")
     public List<UserDto2> getAllUsersIdAndName () {
-
+            // Request POSTMAN http://localhost:8080/v1/getUsers
         return userService.findAllUsers()
                 .stream()
                 .map(userMapper::toDto2)
@@ -61,7 +63,7 @@ class UserController {
 
     @GetMapping(value = "/getUser/{idUser}")
     public List<UserDto> getUserById(@PathVariable("idUser") Long idUser) {
-
+                // Request POSTMAN http://localhost:8080/v1/getUser/1
         return userService.getUser(idUser)
                 .stream()
                 .map(userMapper::toDto)
@@ -70,7 +72,7 @@ class UserController {
 
     @GetMapping(value = "/getUserByEmail/{email}")
     public List<UserEmailDto> getUserByEmail(@PathVariable("email") String email) {
-        // Request POSTMAN http://localhost:8080/v1/getUserByMail/kawa2000@wp.pl
+        //Request POSTMAN http://localhost:8080/v1/getUserByEmail/biko@wp.pl
         return userService.getUserByEmail(email)
                 .stream()
                 .map(userMapper::toDtoEmail)
