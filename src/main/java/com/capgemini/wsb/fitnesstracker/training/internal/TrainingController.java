@@ -24,4 +24,9 @@ class TrainingController {
         return trainingService.getAllTrainings().stream().map(trainingMapper::toDto).toList();
     }
 
+    @GetMapping(value = "/getAllTrainingUser/{idUser}")
+    public List<TrainingDto> getAllTraining(@PathVariable("idUser") Long idUser) {
+        return trainingService.getAllTrainingsUser(idUser).stream().map(trainingMapper::toDto).toList();
+    }
+
 }

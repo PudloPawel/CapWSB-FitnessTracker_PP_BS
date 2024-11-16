@@ -23,6 +23,10 @@ public class TrainingServiceImpl implements TrainingProvider, TrainingService {
 
     }
 
+    public List<Training> getAllTrainingsUser(Long idUser){
+        return trainingRepository.getAllTrainingsUser(idUser);
+    }
+
     @Override
     public Optional<User> getTraining(final Long trainingId) {
         throw new UnsupportedOperationException("Not finished yet");
