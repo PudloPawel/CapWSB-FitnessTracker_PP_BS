@@ -19,3 +19,4 @@ public record TrainingDto(@Nullable Long Id,
 
 }
 
+

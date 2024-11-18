@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,4 +33,24 @@ public class TrainingServiceImpl implements TrainingProvider, TrainingService {
         throw new UnsupportedOperationException("Not finished yet");
     }
 
+    public List<Training> getAllTrainingsAfterEndDate(Date date) {
+        return trainingRepository.getAllTrainingAfterEndDate(date);
+    }
+
+    public List<Training> getAllTrainingsForActivity(String activity) {
+        return trainingRepository.getAllTraninigsForActivity(activity);
+    }
+
+    public Training addTraning(final Training training) {
+        log.info("Creating Training {}", training);
+        if (training.getId() != null) {
+            throw new IllegalArgumentException("Training has already DB ID, update is not permitted!");
+        }
+
+        return trainingRepository.save(training);
+    }
+
+    public List<Training> updateTraining(Long id, double distance) {
+        return trainingRepository.updateTraining(id,distance);
+    }
 }

@@ -54,4 +54,8 @@ public class Training {
         this.distance = distance;
         this.averageSpeed = averageSpeed;
     }
+
+    public void setDistance(Long distance) {
+        this.distance = distance;
+    }
 }

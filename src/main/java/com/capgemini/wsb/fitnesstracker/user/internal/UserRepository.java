@@ -33,14 +33,6 @@ interface UserRepository extends JpaRepository<User, Long> {
      *
      * @return lista {@link User} zawierająca obiekty z uzupełnionymi tylko ID, imieniem i nazwiskiem
      */
-    default List<User> findAllUserIdAndName() {
-        List<User> user = findAll();
-        List<User> users = new ArrayList<>();
-        for (User u : user) {
-            users.add(new User(u.getId(), u.getFirstName(), u.getLastName()));
-        }
-        return users;
-    }
 
     /**
      * Wyszukuje wszystkich użytkowników, którzy mają więcej niż podany wiek.
