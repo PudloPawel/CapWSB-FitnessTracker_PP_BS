@@ -1,5 +1,6 @@
 package com.capgemini.wsb.fitnesstracker.user.internal;
 
+import com.capgemini.wsb.fitnesstracker.training.internal.TrainingServiceImpl;
 import com.capgemini.wsb.fitnesstracker.user.api.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -153,4 +154,6 @@ class UserController {
                 .map(userMapper::toDto)
                 .toList();
     }
+
+
 }
